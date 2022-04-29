@@ -9,6 +9,9 @@ const path = require('path');
 const bookShelfRoutes = require('./routes/bookshelf');
 const bookOwnerRoutes = require('./routes/bookowner');
 
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
 const port = 8000;
 
 const host = '127.0.0.1';
