@@ -23,7 +23,7 @@
                         <p class="book__publication_date"><%= book.publication_date</p>
                     </div>
                     <div class="card__actions">
-                        <a href="/bookowner/edit-book"> class="btn">Edit</a>
+                        <a href="/bookowner/edit-book/<%= book.id %>?edit=true"> class="btn">Edit</a>
                         <form action="/archive" method="post">
                             <button class="btn" type="submit">Archive</button>
                             <input type="hidden" name="bookId" value="<%= book.id %>" >

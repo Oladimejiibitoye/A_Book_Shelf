@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/book.css">
+</head>
+<body>
+    <% -include('../includes/navigation.ejs') %>
+    <main>
+        <form class="book-form" action="/bookowner/<% if (editing) { %>edit-book<% } else { %>add-book<% } %>" method="post">
+            <div class="form-control">
+                <label for="title">Title</label>
+                    <input type="text" name="title" id="title" value="<% if (editing) { %><%= book.title %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="author">Author</label>
+                    <input type="text" name="author" id="title" value="<% if (editing) { %><%= book.author %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="category">Category</label>
+                <input type="text" name="category" id="category" value="<% if (editing) { %><%= book.category %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="bookcover">Book Cover</label>
+                <input type="text" name="bookcover" id="bookcover" value="<% if (editing) { %><%= book.bookcover %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="5"><% if (editing) { %><%= book.description %><% } %></textarea>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="form-control">
+                <label for="publication_date">Publication Date</label>
+                <input type="date" name="publication_date" id="publication_date" value="<% if (editing) { %><%= book.publication_date %><% } %>">
+            </div>
+            
+           
+            <button type="submit"><% if (editing) { %>Update Book<% } else { %>Add Book<% } %></button>
+        </form>
+
+    </main>   
+<%- include('../includes/end.ejs') %>

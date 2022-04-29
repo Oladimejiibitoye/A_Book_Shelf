@@ -1,8 +1,26 @@
 <header class="main-header">
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
-            <li class="main-header__item"><a class="<%= path === '/' ? 'active' : '' %>"href="/">Book Shelf</a></li>
-            <li class="main-header__item"><a class="<%= path === '/add-book' ? 'active' : '' %>"href="/add-book">Add Book</a></li>
+            <li class="main-header__item">
+                <a class="<%= path === '/' ? 'active' : '' %>"href="/">Book Shelf
+                </a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/category' ? 'active' : '' %>"href="/">Category
+                </a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/archive' ? 'active' : '' %>"href="/">Archive
+                </a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/add-book' ? 'active' : '' %>"href="/add-book">Add Book
+                </a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/add-book' ? 'active' : '' %>"href="/bookowner/books">Bookowner Books
+                </a>
+            </li>
         </ul>
     </nav>
 </header>

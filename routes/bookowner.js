@@ -4,9 +4,15 @@ const router = express.Router();
 
 const path = require('path')
 
-router.get('/add-book', (req, res, next) => {
-    res.sendFile(path.join(__dirname, '../', 'views', 'add-book.html'))
-})
+router.get('/add-book')
+
+router.get('/books');
+
+router.post('/add-books');
+
+router.get('/edit-book/:bookId');
+
+router.post('/edit-book');
 
 
 module.exports = router;
