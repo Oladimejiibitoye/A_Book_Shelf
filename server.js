@@ -15,6 +15,8 @@ const errorController = require('./controllers/error');
 
 const Book = require('./models/book');
 const User = require('./models/user');
+const Archive = require('./models/archive');
+const ArchiveItem = require('./models/archiveitem');
 
 app.set('view engine', 'ejs');
 app.set('views',  'views');
@@ -44,6 +46,10 @@ app.use(errorController.get404);
 
 Book.belongsTo(User, { constraints: true, onDelete: 'CASCADE'});
 User.hasMany(Book);
+User.hasOne(Archive);
+Archive.belongsTo(User);
+Archive.belongsToMany(Book, { through: ArchiveItem});
+Book.belongsToMany(Archive, { through: ArchiveItem});
 
 sequelize
     // .sync({force: true})
@@ -52,13 +58,17 @@ sequelize
         return User.findAll({where: {id: 1}});   
     })
     .then(users => {
-        if(!users){
+        const user = users[0]
+        if(!user){
             return User.create({Name: 'Oladimeji', Email: 'test@test.com'})
         }
-        return users;
+        return user;
     })
-    .then(users => {
-    //    console.log(users);
+    .then(user => {
+        // console.log(user);
+        return user.createArchive();   
+    })
+    .then(archive => {
         app.listen(port, host, () => {
             console.log(`Server is running on http://${host}:${port}`)
         })

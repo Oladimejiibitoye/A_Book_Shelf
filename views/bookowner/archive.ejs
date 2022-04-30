@@ -1,0 +1,38 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/book.css">
+
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <% if (books.length > 0) { %>
+         <div class="grid">
+             <% books.forEach(p => { %>
+                <article class="card book-item">
+                    <header class="card__header">
+                        <h1 class="book__title"><%= p.bookId.title %></h1>
+                    </header>
+                    <div class="card__image">
+                        <img src="<%= book.bookcover %>" 
+                            alt="<%= book.title %>">
+                    </div>
+                    <div class="card__content">
+                        <p class="book__category"><%= p.bookId.category %></p>
+                        <p class="book__description"><%= p.bookId.description %></p>
+                        <p class="book__author"><%= p.bookId.author %></p>
+                        <p class="book__publication_date"><%= p.bookId.publication_date %></p>
+                    </div>
+                    <div class="card__actions">
+                        <form action="/bookowner/archive" method="post">
+                            <input type="hidden" value="<%= book._id %>" name="bookId">
+                            <button class="btn" type="submit">Unarchive</button>
+                        </form>
+                    </div>
+                </article>
+                <% }) %>
+        </div>
+        <% } else {%>
+            <h1>No Book Found!</h1>
+        <% } %>
+    </main>   
+<%- include('../includes/end.ejs') %>

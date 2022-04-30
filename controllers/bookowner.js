@@ -99,3 +99,44 @@ exports.postEditBook = (req, res, next) => {
     });
 };
 
+exports.getArchive = (req, res, next) => {
+    req.user
+    .getArchive()
+    .then(archive => {
+        return archive.getBooks()
+        .then(books => {
+            // console.log(books)
+            res.render('bookowner/archive', {
+                pageTitle: 'Your Archive',
+                path: '/bookowner/archive',
+                books: books
+            })
+        })
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
+}
+
+exports.postArchive = (req, res, next) => {
+    const book_Id = req.body.bookId;
+    let fetcharchive;
+    req.user
+        .getArchive()
+        .then(archive => {
+            fetcharchive = archive
+            return archive.getBooks({ where: { id: book_Id} });
+        })
+        .then(books => {
+            return Book.findAll({where: {id: book_Id}})
+            .then(books => {
+                const book = books[0];
+                return fetcharchive.addBook(book)
+            })
+            .catch(err => console.log(err));
+        })
+        .then(() => {
+            res.redirect('/bookowner/archive');
+        })
+        
+        .catch(err => console.log(err));
+}

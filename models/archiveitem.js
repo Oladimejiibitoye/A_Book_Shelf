@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../connection/database')
 
-const Archive = sequelize.define('archive', {
+const ArchiveItem = sequelize.define('archiveitem', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,4 +12,4 @@ const Archive = sequelize.define('archive', {
 
 });
 
-module.exports = Archive;
+module.exports = ArchiveItem;
