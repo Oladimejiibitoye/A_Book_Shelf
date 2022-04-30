@@ -4,7 +4,7 @@ exports.getAddBook = (req, res, next) => {
     res.render('bookowner/edit-book', {
         pageTitle: 'Add Book',
         path: '/bookowner/add-book',
-        editing: false
+        editing: false,
     })
 }
 
@@ -64,7 +64,7 @@ exports.getEditBook = (req, res, next) => {
             pageTitle: 'Edit Book',
             path: '/bookowner/edit-book',
             editing: editMode,
-            book: book
+            book: book,
         });
     })
     .catch((err) => {
@@ -109,7 +109,7 @@ exports.getArchive = (req, res, next) => {
             res.render('bookowner/archive', {
                 pageTitle: 'Your Archive',
                 path: '/bookowner/archive',
-                books: books
+                books: books,
             })
         })
         .catch(err => console.log(err));

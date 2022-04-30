@@ -10,6 +10,7 @@ const sequelize = require('./connection/database');
 
 const bookShelfRoutes = require('./routes/bookshelf');
 const bookOwnerRoutes = require('./routes/bookowner');
+const authRoutes = require('./routes/auth');
 
 const errorController = require('./controllers/error');
 
@@ -40,6 +41,7 @@ app.use((req, res, next) => {
 //routes
 app.use('/bookowner', bookOwnerRoutes);
 app.use(bookShelfRoutes);
+app.use(authRoutes);
 
 
 app.use(errorController.get404);

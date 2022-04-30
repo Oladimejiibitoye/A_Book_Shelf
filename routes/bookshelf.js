@@ -10,8 +10,8 @@ router.get('/category', bookShelfController.getCategory);
 
 router.get('/category/:bookId', bookShelfController.getBook);
 
-// router.get('/archive');
-
 router.get('/', bookShelfController.getIndex );
+
+router.get('/:category', bookShelfController.getBookbyCategory);
 
 module.exports = router;

@@ -6,7 +6,7 @@ exports.getCategory = (req, res, next) => {
         res.render('bookshelf/category', {
             boks: books,
             pageTitle: 'All Books',
-            path: '/category'
+            path: '/category',
         });
     })
     .catch((err) => {
@@ -21,7 +21,7 @@ exports.getBook = (req, res, next) => {
         res.render('bookshelf/book-detail', {
             book: books[0],
             pageTitle: books[0].title,
-            path: '/books'
+            path: '/books',
         });
     })
     .catch((err) => {
@@ -35,7 +35,22 @@ exports.getIndex = (req, res, next) => {
         res.render('bookshelf/index', {
             boks: books,
             pageTitle: 'Bookshelf',
-            path: '/'
+            path: '/',
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
+
+exports.getBookbyCategory = (req, res, next) => {
+    const Category = req.params.category;
+    Book.findAll({where: {category: Category}})
+    .then(books => {
+        res.render('bookshelf/category-detail', {
+            boks: books,
+            pageTitle: 'Category',
+            path: '/books',
         });
     })
     .catch((err) => {
