@@ -4,14 +4,14 @@ const router = express.Router();
 
 const path = require('path');
 
-router.get('/category');
+const bookShelfController = require('../controllers/bookshelf')
 
-router.get('/books');
+router.get('/category', bookShelfController.getCategory);
 
-router.get('/books/:bookid');
+router.get('/category/:bookId', bookShelfController.getBook);
 
-router.get('/archive');
+// router.get('/archive');
 
-router.get('/' );
+router.get('/', bookShelfController.getIndex );
 
 module.exports = router;

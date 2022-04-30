@@ -1,12 +1,12 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
 </head>
 <body>
-    <%- include('includes/navigation.ejs') %>  
+    <%- include('../includes/navigation.ejs') %>  
     <main class="centered">
         <h1><%= book.title %></h1>
         <hr>
-        <div>
+        <div class="image">
             <img src="<%= book.bookcover %>" alt="<%= book.title %>">
         </div>
     </main>
-<%- include('includes/end.ejs') %>
+<%- include('../includes/end.ejs') %>

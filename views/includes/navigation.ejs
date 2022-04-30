@@ -1,4 +1,6 @@
+<div class="backdrop"></div>
 <header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
             <li class="main-header__item">
@@ -6,19 +8,19 @@
                 </a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/category' ? 'active' : '' %>"href="/">Category
+                <a class="<%= path === '/category' ? 'active' : '' %>"href="/category">Category
                 </a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/archive' ? 'active' : '' %>"href="/">Archive
+                <a class="<%= path === '/bookowner/archive' ? 'active' : '' %>"href="/bookowner/archive">Archive
                 </a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/add-book' ? 'active' : '' %>"href="/add-book">Add Book
+                <a class="<%= path === '/bookowner/add-book' ? 'active' : '' %>"href="/bookowner/add-book">Add Book
                 </a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/add-book' ? 'active' : '' %>"href="/bookowner/books">Bookowner Books
+                <a class="<%= path === '/bookowner/books' ? 'active' : '' %>"href="/bookowner/books">Bookowner Books
                 </a>
             </li>
         </ul>

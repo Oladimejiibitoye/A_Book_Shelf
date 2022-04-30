@@ -2,17 +2,19 @@ const express = require('express');
 
 const router = express.Router();
 
-const path = require('path')
+const path = require('path');
 
-router.get('/add-book')
+const bookOwnerController = require('../controllers/bookowner')
 
-router.get('/books');
+router.get('/add-book', bookOwnerController.getAddBook)
 
-router.post('/add-books');
+router.get('/books', bookOwnerController.getBooks);
 
-router.get('/edit-book/:bookId');
+router.post('/add-book', bookOwnerController.postAddBook);
 
-router.post('/edit-book');
+router.get('/edit-book/:bookId', bookOwnerController.getEditBook);
+
+router.post('/edit-book', bookOwnerController.postEditBook);
 
 
 module.exports = router;

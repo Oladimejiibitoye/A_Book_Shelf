@@ -1,6 +1,8 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/book.css">
+    <link rel="stylesheet" href="/css/form.css">    
 </head>
+
 <body>
     <% -include('../includes/navigation.ejs') %>
     <main>
@@ -11,7 +13,7 @@
             </div>
             <div class="form-control">
                 <label for="author">Author</label>
-                    <input type="text" name="author" id="title" value="<% if (editing) { %><%= book.author %><% } %>">
+                    <input type="text" name="author" id="author" value="<% if (editing) { %><%= book.author %><% } %>">
             </div>
             <div class="form-control">
                 <label for="category">Category</label>
@@ -24,15 +26,15 @@
             <div class="form-control">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" rows="5"><% if (editing) { %><%= book.description %><% } %></textarea>
-                <input type="text" name="title" id="title">
             </div>
             <div class="form-control">
                 <label for="publication_date">Publication Date</label>
                 <input type="date" name="publication_date" id="publication_date" value="<% if (editing) { %><%= book.publication_date %><% } %>">
             </div>
-            
-           
-            <button type="submit"><% if (editing) { %>Update Book<% } else { %>Add Book<% } %></button>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= book._id %>" name="bookId">
+            <% } %>
+            <button class="btn" type="submit"><% if (editing) { %>Update Book<% } else { %>Add Book<% } %></button>
         </form>
 
     </main>   
